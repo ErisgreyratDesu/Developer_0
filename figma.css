@@ -340,6 +340,12 @@ main {
     transition: all 0.2s;
     cursor: pointer;
 }
+.leftArrow:active {
+    transform: scale(0.9);
+}
+.rightArrow:active {
+    transform: scale(0.9);
+}
 .rightArrow {
     transition: all 0.2s;
     display: flex;
@@ -378,10 +384,13 @@ main {
     display: inline-block;
     width: 10em;
     height: 15em;
+    transition: all 0.5s;
     filter: brightness(40%);
+    border-radius: 12px;
 }
 .img_card_main:hover > img {
     filter: brightness(100%);
+    transform: scale(1.05);
 }
 /* --------------------CONTENT2------- */
 .content_m_2 {
@@ -513,6 +522,10 @@ main {
     }
     nav > .menu {
         margin-left: 1em;
+        transition: all 0.2s;
+    }
+    nav > .menu:active {
+        transform: scale(.95);
     }
 .wrapper_contents_header > h1 {
         font-size: 2rem;
@@ -559,6 +572,17 @@ main {
     }
 }
 @media (max-width:440px) {
+    header {
+        width: 440px;
+        min-height: 90vh;
+    }
+    .wrapper_header > img {
+        position: absolute;
+        object-fit: cover;
+        z-index: -1;
+        width: 440px;
+        height: 100%;
+    } 
     .wrapper_contents_header {
         display: flex;
         flex-direction: column;
