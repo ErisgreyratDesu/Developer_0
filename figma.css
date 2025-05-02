@@ -3,6 +3,9 @@
     padding:0;
     box-sizing: border-box;
 }
+.wrapper_btn_header.active{
+    display: flex;
+}
 html {
     scroll-behavior: smooth;
 }
@@ -12,9 +15,70 @@ body {
     color: #FFFFFF;
     height: auto;
 }
+body.activated {
+    overflow: hidden;
+}
 .wrapper_general {
     gap:1em;
     position: relative;
+}
+.seaching_area {
+    width: 100%;
+    height: 100vh;
+    background-color: #00000089;
+    backdrop-filter: blur(5px);
+    position: absolute;
+    z-index: 1000;
+    display: none;
+    display: flex;
+    flex-direction: column;
+    gap:2em;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+.seaching_area > #ouputOfS {
+    font-size: 1.5rem;
+    color:greenyellow;
+    text-shadow: 0 0 10px rgba(172, 255, 47, 0.119), 0 0 10px greenyellow;
+}
+.seaching_area.active{
+    display: flex;
+}
+.seaching_area > .cancel_btn {
+    position: absolute;
+    background:none;
+    border: none;
+    left: 50%;
+    border-radius: 50%;
+    top:20%;
+    transform: translateX(-50%);
+    width: 2em;
+    height: 2em;
+    cursor: pointer;
+    transition: all 0.5s;
+    color:white;
+    font-size: 1.2rem;
+}
+.seaching_area > .cancel_btn > i {
+    display: inline-block;
+    transition: all 0.5s;
+}
+.seaching_area > .cancel_btn:hover > i {
+    transform: scale(1.5) rotate(360deg);
+}
+.seaching_area > input {
+    border: none;
+    width: 80%;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 1rem;
+    padding:.4em;
+    transition: all 0.4s;
+}
+.seaching_area > input:hover {
+    border:1px solid white;
+    transform: scale(1.05);
 }
 header {
     width: 100%;
@@ -29,10 +93,14 @@ header {
     flex-direction: column;
     font-family:"Poppins", sans-serif;
 }
-.wrapper_header > img {
+.wrapper_header > .imgwrapperne {
     position: absolute;
-    object-fit: cover;
     z-index: -1;
+    width: 100%;
+    height: 100%;
+} 
+.wrapper_header > .imgwrapperne >img {
+    object-fit: cover;
     width: 100%;
     height: 100%;
 } 
@@ -42,6 +110,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     margin: 0 10em 0 10em;
+    position: relative;
 }
 nav > .menu {
     color:#000000;
@@ -200,7 +269,7 @@ nav > .logo:hover {
 }
 .wrapper_subbar_header > .subbar_items {
     color: #000000;
-    font-size: .8rem;
+    font-size: 1rem;
     display: flex;
     align-items: center;
     gap:1em;
@@ -213,7 +282,7 @@ nav > .logo:hover {
     content: "";
     width: 0%;
     left: 10%;
-    bottom: -5px;
+    bottom: -10px;
     height: 4%;
     position: absolute;
     transition: all 0.2s;
@@ -221,21 +290,19 @@ nav > .logo:hover {
 .wrapper_subbar_header > .subbar_items:hover::after{ 
     width: 100%;
 }
-.wrapper_subbar_header > .subbar_items {
-    transform: scale(1.2);
-}
-.wrapper_subbar_header > .subbar_items > img {
+.wrapper_subbar_header > .subbar_items > i {
+    color:#F77E23;
     display: inline-block;
     object-fit: contain;
     border-radius: 50%;
-    padding:.5em;
+    padding:1em;
     background-color: #FFE7DB;
     transition: all 0.2s;
     cursor: pointer;
 }
-.wrapper_subbar_header > .subbar_items > img:hover {
-    transform: scale(1.1);
+.wrapper_subbar_header > .subbar_items > i:hover {
     background-color: whitesmoke;
+    transform: scale(1.2) rotate(360deg);
 }
 .scroll_header_wrapper {
     position: fixed;
@@ -413,9 +480,6 @@ main {
     .wrapper_btn_header > ul > li {
         font-size: .8rem;
     }
-    .wrapper_subbar_header > .subbar_items > img {
-        font-size: 1rem;
-    }
 }
 @media (max-width:810px) {
     nav {
@@ -440,6 +504,28 @@ main {
     }
 }
 @media (max-width:750px) {
+    .wrapper_btn_header {
+        position: absolute;
+        display: none;
+        bottom: 0;
+        left:0;
+        z-index: 14;
+    }
+    .wrapper_btn_header > ul{
+        backdrop-filter: blur(10px);
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap:1em;
+        font-size: 1.5rem;
+        background-color: #000000d2;
+        width: max-content;
+        height: max-content;
+        padding: 3em;;
+        border-radius: 12px;
+    }
     .scroll_header_wrapper {
         right: 5em;
         top:35em;
@@ -572,16 +658,71 @@ main {
     }
 }
 @media (max-width:440px) {
+    .wrapper_contents_header > .btn_m_h{
+        background: #FF6F28;
+        color: #FFFFFF;
+        font-family: "Source Code Pro",sans-serif;
+        border-radius: 6px;
+        font-size: 2em;
+        padding:1em 1.2em 1em 1.2em;
+        border: none;
+        transition: all 0.2s;
+        cursor: pointer;
+    }
+    .wrapper_contents_header > h1 {
+        text-wrap: wrap;
+        font-size: 1rem;
+        line-height: 1.0;
+        text-align: center;
+        letter-spacing: 5px;
+        font-weight: bold;
+        max-width: 30ch;
+    }
+    .wrapper_contents_header > h2 {
+        text-wrap: wrap;
+        max-width: 67ch;
+        text-align: center;
+        font-size: .6rem;
+        font-weight: 450;
+        font-family: "Source Code Pro",sans-serif;
+    }
+    .wrapper_contents_header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: .35rem;
+        margin:0 10em 0 10em;
+    }
+    .seaching_area {
+        width: 440px;
+        height: 100vh;
+    }
     header {
         width: 440px;
-        min-height: 90vh;
+        min-height: max-content;
     }
-    .wrapper_header > img {
+    .wrapper_header {
+        position: relative;
+        width: 100%;
+        min-height: fit-content;
+        padding-bottom: 6em;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        font-family:"Poppins", sans-serif;
+    }
+    .wrapper_header > .imgwrapperne {
+        padding-top: 3.5em;
         position: absolute;
-        object-fit: cover;
         z-index: -1;
+        width: 100%;
+        height: max-content;
+    } 
+    .wrapper_header > .imgwrapperne >img {
+        object-fit: contain;
         width: 440px;
-        height: 100%;
+        height: max-content;
     } 
     .wrapper_contents_header {
         display: flex;
@@ -591,12 +732,20 @@ main {
         align-items: center;
         gap:2em;
     }
+    .wrapper_subbar_header {
+        padding:.1em;
+        width: 70%;
+        min-height: fit-content;
+        bottom: 20px;
+
+    }
     .wrapper_subbar_header > .subbar_items {
         color: #000000;
-        font-size: .6rem;
+        font-size: .5rem;
         display: flex;
         align-items: center;
         justify-content: flex-start;
+        padding:0;
         gap:3em;
         transition: all 0.2s;
         cursor: pointer;
@@ -607,6 +756,5 @@ main {
     }
     .scroll_header_wrapper {
         right: 2em;
-        top:28em;
+        top:28em;}
     }
-}

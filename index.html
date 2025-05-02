@@ -15,6 +15,11 @@
 </head>
 <body>
 <div class="wrapper_general">
+    <div class="seaching_area">
+        <button class="cancel_btn" title="cancle" onclick="seachingacts()"><i class="fa-solid fa-x"></i></button>
+        <input type="text" placeholder="Enter here..." id="inputed_searching">
+        <div id="ouputOfS"></div>
+    </div>
     <div class="scroll_header_wrapper" title="Back to header">
         <a class="scroll_wrapper" href="#headerBack">
             <div class="scroll_header"><i class="fa-solid fa-arrow-up"></i></div>
@@ -22,9 +27,10 @@
     </div>
     <header>
         <div class="wrapper_header">
-            <img src="./person_background.png" alt="img">
+            <div class="imgwrapperne">
+                <img src="./person_background.png" alt="img"></div>
             <nav>
-                <button class="menu" onclick="menu_function()"><i class="fa-solid fa-bars"></i></button>
+                <button class="menu" id="btn_menune" onclick="menu_function()"><i class="fa-solid fa-bars"></i></button>
                 <img src="./logo.png" class="logo" id="headerBack"></img>
                 <div class="wrapper_btn_header">
                     <ul>
@@ -36,7 +42,7 @@
                     </ul>
                 </div>
                 <div class="wrapper_register">
-                    <div class="searching"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <div class="searching" id="seaching_btn" onclick="seachingacts()"><i class="fa-solid fa-magnifying-glass"></i></div>
                     <div class="login">Login</div>
                     <div class="register">Register</div>
                     <div class="register mobile"><i class="fa-solid fa-user"></i></div>
@@ -48,9 +54,12 @@
                 <button class="btn_m_h">Get Started</button>
             </div>
             <div class="wrapper_subbar_header">
-                <div class="subbar_items item_h1"><img src="./ChatIcon.png">Live chat</div>
-                <div class="subbar_items item_h2"><img src="./skillshareIcon.png">Examination</div>
-                <div class="subbar_items item_h3"><img src="./GroupIcon.png">Competition</div>
+                <div class="subbar_items item_h1">
+                    <i class="fa-regular fa-comments"></i> chat</div>
+                <div class="subbar_items item_h2">
+                    <i class="fa-brands fa-nfc-symbol"></i> Examination</div>
+                <div class="subbar_items item_h3">
+                    <i class="fa-solid fa-user-group"></i> Competition</div>
             </div>
             </div>
         </div>
