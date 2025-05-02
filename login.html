@@ -27,13 +27,17 @@
             <h1 class="heading">Login</h1>
             <h2 class="description">Use your <b>Fountain</b> account.</h2>
             <div class="wrapper_input">
-                <input class="userInput" type="text" id="userInput_login">
-                <label for="userInput_login">Email or phone number</label>
+                <input class="userInput" type="text" id="userInput_login" required placeholder=" ">
+                <label id="label_login" for="userInput_login">Email or phone number</label>
+            </div>
+            <div class="wrapper_input" id="userPass">
+                <input class="userInput" type="text" id="userInput_login" required placeholder="">
+                <label id="label_login" for="userInput_login">Enter your password</label>
             </div>
             <div class="wrapper_userForgotName">
                 <a href="#" class="userForgetName">Forget user's name?</a>
             </div>
-            <button class="btn_submit">Submit</button>
+            <button class="btn_submit" onclick="submit()">Submit</button>
         </div>
         <div class="wrapper_register wrapperform">
             <div class="logo">

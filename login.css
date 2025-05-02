@@ -105,6 +105,9 @@ body {
     transition: all 0.3s;
     border: 1px solid rgba(0, 0, 0, 0.308);
 }
+#userPass {
+    display: none;
+}
 .wrapper_login_general > .wrapperform > .wrapper_input> .userInput:hover {
     border: 1px solid black;
 }
@@ -123,6 +126,9 @@ body {
     background-color: white;
     padding:0 .2em 0 .2em;
     border: none;
+}
+.wrapper_login_general > .wrapperform > .wrapper_input > .userInput:not(:placeholder-shown) + label {
+    display: none;
 }
 .wrapper_login_general > .wrapperform  > .wrapper_userForgotName {
     position: relative;
