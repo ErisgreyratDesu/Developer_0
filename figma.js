@@ -15,3 +15,6 @@ function menu_function() {
     const isclicked = document.querySelector('.wrapper_btn_header');
     isclicked.classList.toggle('active');
 }
+function beingFunction() {
+    alert("This feature is under construction.")
+}
