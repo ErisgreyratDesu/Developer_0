@@ -54,7 +54,7 @@ body {
     transition: all 0.3s;
 }
 .particle.active {
-    transform: translateX(calc(100% + 300px));
+    transform: translateX(calc(100% + 125px));
     clip-path: circle(100px at center right);
 }
 .wrapper_login_general  > .half_form > .btn_change_model{
