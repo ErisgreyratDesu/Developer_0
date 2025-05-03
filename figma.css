@@ -10,10 +10,10 @@ html {
     scroll-behavior: smooth;
 }
 body {
-    width: 100%;
+    min-width: 100%;
     position: relative;
     color: #FFFFFF;
-    height: auto;
+    height: 100vh;
 }
 body.activated {
     overflow: hidden;
@@ -306,10 +306,9 @@ nav > .logo:hover {
 }
 .scroll_header_wrapper {
     position: fixed;
-    right: 7em;
-    top:38em;
+    right: 10%;
+    top:80vh;
     z-index: 100;
-    float: auto;
 }
 .scroll_wrapper {
     width: 35px;
